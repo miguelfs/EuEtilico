@@ -28,6 +28,7 @@ public class ConsumableAdapter extends RecyclerView.Adapter<ConsumableAdapter.Co
     public void onBindViewHolder(ConsumableViewHolder consumableViewHolder, int position) {
         ConsumableInfo consumableInfo = mConsumableList.get(position);
         consumableViewHolder.mNameTextView.setText(consumableInfo.mName);
+
     }
 
 
@@ -36,7 +37,6 @@ public class ConsumableAdapter extends RecyclerView.Adapter<ConsumableAdapter.Co
         // create a new view
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.consumable_item, parent, false);
-
         return new ConsumableViewHolder(itemView);
     }
 

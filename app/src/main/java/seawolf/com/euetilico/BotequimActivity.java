@@ -2,6 +2,7 @@ package seawolf.com.euetilico;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -10,11 +11,11 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BarActivity extends AppCompatActivity {
+public class BotequimActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ConsumableAdapter mConsumableAdapter;
+    private List mListItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,47 @@ public class BarActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mListItems = createList(6);
 
-        mConsumableAdapter = new ConsumableAdapter(createList(6));
+
+
+
+        mConsumableAdapter = new ConsumableAdapter(mListItems);
         mRecyclerView.setAdapter(mConsumableAdapter);
+
+        SwipeableRecyclerViewTouchListener swipeTouchListener =
+                new SwipeableRecyclerViewTouchListener(mRecyclerView,
+                        new SwipeableRecyclerViewTouchListener.SwipeListener() {
+                            @Override
+                            public boolean canSwipe(int position) {
+                                return true;
+                            }
+
+                            @Override
+                            public void onDismissedBySwipeLeft(RecyclerView recyclerView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
+                                    mListItems.remove(position);
+                                    mConsumableAdapter.notifyItemRemoved(position);
+                                }
+                                mConsumableAdapter.notifyDataSetChanged();
+                            }
+
+                            @Override
+                            public void onDismissedBySwipeRight(RecyclerView recyclerView, int[] reverseSortedPositions) {
+                                for (int position : reverseSortedPositions) {
+                                    mListItems.remove(position);
+                                    mConsumableAdapter.notifyItemRemoved(position);
+                                }
+                                mConsumableAdapter.notifyDataSetChanged();
+                            }
+                        });
+
+        mRecyclerView.addOnItemTouchListener(swipeTouchListener);
+
     }
+
+
 
     private List createList(int size) {
 
