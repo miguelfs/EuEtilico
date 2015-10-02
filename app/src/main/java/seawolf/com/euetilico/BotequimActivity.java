@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.AutoCompleteTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +15,17 @@ public class BotequimActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private ConsumableAdapter mConsumableAdapter;
     private List mListItems;
+    String[] consumableCardapio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        consumableCardapio = Constants.CONSUMABLE_CONSTANTS;
+
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bar);
+        setContentView(R.layout.activity_botequim);
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -31,7 +36,7 @@ public class BotequimActivity extends AppCompatActivity {
 
 
 
-        mConsumableAdapter = new ConsumableAdapter(mListItems);
+        mConsumableAdapter = new ConsumableAdapter(this, mListItems);
         mRecyclerView.setAdapter(mConsumableAdapter);
 
         SwipeableRecyclerViewTouchListener swipeTouchListener =
