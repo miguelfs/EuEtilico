@@ -32,8 +32,12 @@ public class ConsumableAdapter extends RecyclerView.Adapter<ConsumableAdapter.Co
 
     @Override
     public void onBindViewHolder(ConsumableViewHolder consumableViewHolder, int position) {
-        ConsumableInfo consumableInfo = mConsumableList.get(position);
         consumableViewHolder.mAutoCompleteTextView.setHint(R.string.autocomplete_hint);
+    //    if (consumableViewHolder.getAdapterPosition() == 3) {
+     //   if(mConsumableList.get(position).isLastItem() == true) {
+    //        consumableViewHolder.mAutoCompleteTextView.setHint("biscoito_caramelo");
+    //  }
+
         String[] constants = Constants.CONSUMABLE_CONSTANTS;
         ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.select_dialog_item, constants);
         consumableViewHolder.mAutoCompleteTextView.setThreshold(3);
