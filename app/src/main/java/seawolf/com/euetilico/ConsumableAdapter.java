@@ -1,6 +1,5 @@
 package seawolf.com.euetilico;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,20 +7,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
 
 import java.util.List;
 
 /**
- * Created by Miguel on 01/10/2015.
+ * Created by Miguel on 05/10/2015.
  */
-public class ConsumableAdapter extends RecyclerView.Adapter<ConsumableAdapter.ConsumableViewHolder> {
-    Context mContext;
+public class ConsumableAdapter extends RecyclerView.Adapter<ConsumableAdapter.ConsumableViewHolder>{
+    private Context mContext;
     private List<ConsumableInfo> mConsumableList;
 
-    public ConsumableAdapter(Context context, List<ConsumableInfo> contactList) {
+    public ConsumableAdapter(Context context, List<ConsumableInfo> contactList){
         mContext = context;
         mConsumableList = contactList;
+    }
+
+
+
+    @Override
+    public ConsumableViewHolder onCreateViewHolder (ViewGroup parent, int viewType)  {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.consumable_item, parent, false);
+        ConsumableViewHolder viewHolder = new ConsumableViewHolder(view);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ConsumableViewHolder holder, int position) {
+        holder.bindData(mConsumableList.get(position), holder, mContext);
+
+
     }
 
     @Override
@@ -29,46 +44,28 @@ public class ConsumableAdapter extends RecyclerView.Adapter<ConsumableAdapter.Co
         return mConsumableList.size();
     }
 
+    public class ConsumableViewHolder extends RecyclerView.ViewHolder {
+        public AutoCompleteTextView mAutoCompleteTextView;
 
-    @Override
-    public void onBindViewHolder(ConsumableViewHolder consumableViewHolder, int position) {
-        consumableViewHolder.mAutoCompleteTextView.setHint(R.string.autocomplete_hint);
-    //    if (consumableViewHolder.getAdapterPosition() == 3) {
-     //   if(mConsumableList.get(position).isLastItem() == true) {
-    //        consumableViewHolder.mAutoCompleteTextView.setHint("biscoito_caramelo");
-    //  }
+        public ConsumableViewHolder(View itemView) {
+            super(itemView);
 
-        String[] constants = Constants.CONSUMABLE_CONSTANTS;
-        ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.select_dialog_item, constants);
-        consumableViewHolder.mAutoCompleteTextView.setThreshold(3);
-        consumableViewHolder.mAutoCompleteTextView.setAdapter(adapter);
-
-
-    }
-
-
-    @Override
-    public ConsumableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.consumable_item, parent, false);
-        return new ConsumableViewHolder(itemView);
-    }
-
-    public static class ConsumableViewHolder extends RecyclerView.ViewHolder{
-        protected AutoCompleteTextView mAutoCompleteTextView;
-
-        public ConsumableViewHolder(View v) {
-            super(v);
-            mAutoCompleteTextView = (AutoCompleteTextView) v.findViewById(R.id.autoCompleteCardTextView);
+            mAutoCompleteTextView = (AutoCompleteTextView) itemView.findViewById(R.id.autoCompleteTextView);
         }
 
+        public void bindData(ConsumableInfo consumableInfo, ConsumableViewHolder holder, Context context) {
+
+            //OBSERVAÇÃO IMPORANTE:
+            // ao comentar a linha a seguir, os nomes ao inicializar os cards não serão 1, 2, 3, 4...
+            //nesse caso, aparece a Hint "Comida/Bebida"
+            mAutoCompleteTextView.setText(consumableInfo.getName());
+            String[] constants = Constants.CONSUMABLE_CONSTANTS;
+
+            //adapter para carregar produtos no AutoComplete do mAutoCompleteTextView
+               ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.select_dialog_item, constants);
+                holder.mAutoCompleteTextView.setThreshold(3);
+               holder.mAutoCompleteTextView.setAdapter(adapter);
+        }
 
     }
-
-
-
-
-
-
 }
