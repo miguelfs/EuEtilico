@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,8 @@ public class BotequimActivity extends AppCompatActivity{
     private ConsumableAdapter mConsumableAdapter;
     private List mListItems;
     private Button mAddCardButton;
+    public static TextView mTotalPriceTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +32,7 @@ public class BotequimActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_botequim);
         mAddCardButton = (Button) findViewById(R.id.addCardButton);
+        mTotalPriceTextView = (TextView) findViewById(R.id.resultPriceText);
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -86,8 +94,10 @@ public class BotequimActivity extends AppCompatActivity{
                 consumableInfo.setName("" + (mListItems.size() + 1));
                 mListItems.add(mListItems.size(), consumableInfo);
                 mConsumableAdapter.notifyItemInserted(mListItems.size() - 1);
+                Toast.makeText(BotequimActivity.this, "mConsumableAdapter = " + mConsumableAdapter.getTotalPriceString(), Toast.LENGTH_SHORT).show();
+                mTotalPriceTextView.setText(mConsumableAdapter.getTotalPriceString());
+                FormatStringAndText.setPriceTextViewSize(mConsumableAdapter.getTotalPrice(), mTotalPriceTextView);
             }
         });
     }
-
 }

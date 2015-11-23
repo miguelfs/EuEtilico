@@ -13,15 +13,64 @@
         android:id="@+id/recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/linearButtonLayout"
+        android:layout_above="@+id/linearPriceLayout"
         />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearButtonLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/linearPriceLayout">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:text="Custo do consumo total\n\rem R$"
+            android:id="@+id/wordsPriceText"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:textIsSelectable="false"
+            android:focusable="false"
+            android:textStyle="italic"
+            android:layout_gravity="bottom"
+            android:elegantTextHeight="false"
+            android:gravity="end"
+            android:layout_marginRight="2sp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:text="0.00"
+            android:id="@+id/resultPriceText"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:textColor="@android:color/black"
+            android:textSize="64dp"
+            android:textIsSelectable="true"
+            android:focusable="false"
+            android:textStyle="bold"
+            android:layout_marginLeft="2sp"
+            android:gravity="center_horizontal"/>
+    </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:id="@+id/linearButtonLayout"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        >
 
         <Button
             android:layout_width="0dp"
@@ -30,7 +79,9 @@
             android:text="Adicionar Produto"
             android:id="@+id/addCardButton"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            />
 
         <Button
             android:layout_width="0dp"
@@ -39,6 +90,7 @@
             android:text="Enviar!"
             android:id="@+id/submitListButton"
             android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/addCardButton"
             android:layout_toEndOf="@+id/addCardButton"/>
 
 
