@@ -11,26 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17dcb04c-19a3-42c4-9a9f-add9e8979737" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/seawolf/com/euetilico/FormatStringAndText.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/seawolf/com/euetilico/BotequimActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/seawolf/com/euetilico/BotequimActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/seawolf/com/euetilico/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/seawolf/com/euetilico/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/seawolf/com/euetilico/ConsumableAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/seawolf/com/euetilico/ConsumableAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_botequim.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_botequim.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/consumable_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/consumable_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EuEtilico.iws" />
@@ -1888,11 +1868,18 @@
       <option name="number" value="Default" />
       <updated>1443758450239</updated>
     </task>
+    <task id="LOCAL-00001" summary="Corrigi o valor total da lista, entre outros bugs de formatação de strings. Adicionei a view de quantas pessoas consomem o produto.&#10;&#10;Ainda falta implementar a divisão ao selecionar quantas pessoas, além de quantos produtos iguais a aquele o consumidor consumiu.&#10;">
+      <created>1448240815849</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1448240815849</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1938,6 +1925,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Corrigi o valor total da lista, entre outros bugs de formatação de strings. Adicionei a view de quantas pessoas consomem o produto.&#10;&#10;Ainda falta implementar a divisão ao selecionar quantas pessoas, além de quantos produtos iguais a aquele o consumidor consumiu.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigi o valor total da lista, entre outros bugs de formatação de strings. Adicionei a view de quantas pessoas consomem o produto.&#10;&#10;Ainda falta implementar a divisão ao selecionar quantas pessoas, além de quantos produtos iguais a aquele o consumidor consumiu.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
