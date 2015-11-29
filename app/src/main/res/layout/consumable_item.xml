@@ -13,44 +13,60 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-
         <AutoCompleteTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/ConsumableTextView"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginEnd="16sp"
-            android:layout_marginRight="16sp"
             android:hint="Comida/Bebida"
-            android:layout_alignBaseline="@+id/priceTextView"
-            android:textIsSelectable="false"/>
+            android:textIsSelectable="false"
+            android:layout_toStartOf="@+id/priceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/priceTextView"
+            android:layout_marginRight="16dp"/>
+
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:id="@+id/priceTextView"
             android:hint="Preço"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="16sp"
-            android:layout_marginRight="16sp"
-            android:layout_toEndOf="@+id/ConsumableTextView"
-            android:layout_toRightOf="@+id/ConsumableTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
 
-            />
-
-        <Spinner
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/DivideConsumableSpinner"
-            android:entries="@array/divide_array"
-            android:layout_toEndOf="@+id/priceTextView"
-            android:layout_toRightOf="@id/priceTextView"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignBaseline="@+id/priceTextView"/>
+            android:layout_alignParentTop="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@+id/ConsumableTextView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/unitsSpinner"
+                    android:entries="@array/units_array"
+                    android:layout_toLeftOf="@+id/DivideConsumableSpinner"
+                    android:layout_alignParentLeft="true"/>
+
+                <Spinner
+                    android:id="@+id/DivideConsumableSpinner"
+                    android:entries="@array/divide_array"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
 
     </RelativeLayout>
 

@@ -2,8 +2,23 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".BarActivity">
-    <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
+
+    <item android:id="@+id/menu_item"
+          android:title=""
+          android:icon="@mipmap/ic_launcher"
+          android:layout_alignParentLeft="true"
+          app:showAsAction="ifRoom"
+        />
+
+    <item android:id="@+id/action_extras"
+          android:title="@string/action_extras"
           android:orderInCategory="100"
-          app:showAsAction="never"/>
+          app:showAsAction="collapseActionView"/>
+
+    <item
+        android:id="@+id/myswitch"
+        android:title=""
+        app:showAsAction="always"
+        android:actionLayout="@layout/switch_layout"
+        />
 </menu>

@@ -1,4 +1,4 @@
-package seawolf.com.euetilico;
+package seawolf.com.euetilico.models;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

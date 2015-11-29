@@ -1,4 +1,4 @@
-package seawolf.com.euetilico;
+package seawolf.com.euetilico.utils;
 
 import android.util.TypedValue;
 import android.widget.TextView;
@@ -17,9 +17,10 @@ public class FormatStringAndText {
         }
         if ((price*10) % 1 == 0){
 
-            return priceString.concat("0");
+        //    return priceString.concat("0");
+            return String.format("%.2f", price);
         }
-        return priceString;
+        return String.format("%.2f", price);
     }
 
     public static void setPriceTextViewSize(Double price, TextView textView){
@@ -30,6 +31,20 @@ public class FormatStringAndText {
             textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 32);
         }
     }
+
+    public static boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
 
 
 

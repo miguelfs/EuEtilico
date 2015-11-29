@@ -1,4 +1,4 @@
-package seawolf.com.euetilico;
+package seawolf.com.euetilico.models;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -10,8 +10,8 @@ import java.util.Map;
 public final class Constants {
 
     public static final String[][] pares = {
-            {"Bohemia", "7.00"},
-            {"Antártica", "6.00"},
+            {"Cerveja Bohemia", "7.00"},
+            {"Cerveja Antártica", "6.00"},
             {"Gourjão de Frango", "14.00"},
             {"Trio Mineiro", "20.00"},
             {"Itaipava", "7.10"},
@@ -42,10 +42,10 @@ public final class Constants {
     };
 
     public static String[] DIVIDE_CONSTANTS = new String[]{
-            "1",
-            "2",
-            "3",
-            "4",
+            "Uma pessoa",
+            "Duas pessoas",
+            "Três pessoas",
+            "Quatro pessoas",
             "5",
             "6",
             "7",
@@ -56,7 +56,22 @@ public final class Constants {
             "Dividi com",
     };
 
-    static final HashMap<String, String> PRODUCT_HASHMAP_CONSTANTS;
+    public static String[] UNITS_CONSTANTS = new String[]{
+            "Uma pessoa",
+            "Duas pessoas",
+            "Três pessoas",
+            "Quatro pessoas",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "Dividi com",
+    };
+
+    public static final HashMap<String, String> PRODUCT_HASHMAP_CONSTANTS;
     static {
         PRODUCT_HASHMAP_CONSTANTS = new HashMap<String, String>();
         for (String[] pair : pares) {

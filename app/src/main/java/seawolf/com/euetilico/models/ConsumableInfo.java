@@ -1,4 +1,4 @@
-package seawolf.com.euetilico;
+package seawolf.com.euetilico.models;
 
 import java.util.ArrayList;
 import java.util.List;
