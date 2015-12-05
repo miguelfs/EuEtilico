@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +39,7 @@ import seawolf.com.euetilico.models.SwipeableRecyclerViewTouchListener;
 import seawolf.com.euetilico.utils.AppMethods;
 import seawolf.com.euetilico.utils.FormatStringAndText;
 
-public class BotequimActivity extends AppCompatActivity{
+public class BotequimActivity extends AppCompatActivity {
     private static final String TAG = "BotequimActivity";
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -47,7 +52,11 @@ public class BotequimActivity extends AppCompatActivity{
     public static ArrayList<Product> mProductList;
     boolean mBooleanToggle = false;
     private SwitchCompat switchService;
-
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient mClient;
 
 
     @Override
@@ -61,19 +70,21 @@ public class BotequimActivity extends AppCompatActivity{
         switchService = (SwitchCompat) findViewById(R.id.myswitch);
         mAddCardButton = (Button) findViewById(R.id.addCardButton);
         mTotalPriceTextView = (TextView) findViewById(R.id.resultPriceText);
-        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
-            //inicializa lista de ConsumableInfo e primeiro item
-            mListItems = new ArrayList();{
+        //inicializa lista de ConsumableInfo e primeiro item
+        mListItems = new ArrayList();
+        {
             ConsumableInfo mConsumableInfo = new ConsumableInfo(0, true);
-            mConsumableInfo.setName("" + nameCounter); nameCounter = nameCounter +1;
+            mConsumableInfo.setName("" + nameCounter);
+            nameCounter = nameCounter + 1;
             mListItems.add(mConsumableInfo);
-            }
+        }
 
         //inicializa comanda
         mComanda = new Comanda();
@@ -82,7 +93,6 @@ public class BotequimActivity extends AppCompatActivity{
             Product mProduct = new Product();
             mProductList.add(mProduct);
         }
-
 
 
         mConsumableAdapter = new ConsumableAdapter(this, mListItems);
@@ -110,7 +120,7 @@ public class BotequimActivity extends AppCompatActivity{
                                 //OBSERVAÇÃO IMPORTANTE:
                                 //ao comentar a linha a seguir, o texto dos Cards não sumirão ao deletar algum card
                                 //no caso de deslizar o Card para a esquerda
-                 //               mConsumableAdapter.notifyDataSetChanged();
+                                //               mConsumableAdapter.notifyDataSetChanged();
                             }
 
                             @Override
@@ -126,10 +136,10 @@ public class BotequimActivity extends AppCompatActivity{
                                 //OBSERVAÇÃO IMPORTANTE:
                                 //ao comentar a linha a seguir, o texto dos Cards não sumirão ao deletar algum card
                                 //no caso de deslizar o Card para a direita
-        //                        mConsumableAdapter.notifyDataSetChanged();
+                                //                        mConsumableAdapter.notifyDataSetChanged();
                             }
                         });
-    //    mRecyclerView.addOnItemTouchListener(swipeTouchListener);
+        //    mRecyclerView.addOnItemTouchListener(swipeTouchListener);
 
         //método para adicionar cards ao clicar no botão
         mAddCardButton.setOnClickListener(new View.OnClickListener() {
@@ -137,17 +147,16 @@ public class BotequimActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 ConsumableInfo consumableInfo = new ConsumableInfo(0, true);
-                if (mListItems.size() == 0){
+                if (mListItems.size() == 0) {
                     consumableInfo.setName("0");
-                }else {
+                } else {
                     consumableInfo.setName("" + mListItems.size());
 
                 }
- //               consumableInfo.setName("" + nameCounter);
-   //             nameCounter = nameCounter + 1;
+                //               consumableInfo.setName("" + nameCounter);
+                //             nameCounter = nameCounter + 1;
                 mListItems.add(mListItems.size(), consumableInfo);
                 mConsumableAdapter.notifyItemInserted(mListItems.size() - 1);
-
 
 
                 Product mProduct = new Product();
@@ -160,6 +169,9 @@ public class BotequimActivity extends AppCompatActivity{
         });
 
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        mClient = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -173,7 +185,7 @@ public class BotequimActivity extends AppCompatActivity{
 
         MenuItem menuItem = menu.findItem(R.id.myswitch);
         View mActionView = MenuItemCompat.getActionView(menuItem);
-        final android.support.v7.widget.SwitchCompat switcher = (android.support.v7.widget.SwitchCompat) mActionView.findViewById(R.id.switchForActionBar);
+        final SwitchCompat switcher = (SwitchCompat) mActionView.findViewById(R.id.switchForActionBar);
         switcher.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -193,11 +205,9 @@ public class BotequimActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.myswitch:
-            {
+            case R.id.myswitch: {
             }
-            case R.id.action_extras:
-            {
+            case R.id.action_extras: {
                 Toast.makeText(this, "em Breve!", Toast.LENGTH_LONG).show();
             }
         }
@@ -206,11 +216,50 @@ public class BotequimActivity extends AppCompatActivity{
     }
 
 
-    public void notifyProductRemoved(int position){
-        if (mProductList!=null) {
+    public void notifyProductRemoved(int position) {
+        if (mProductList != null) {
             mProductList.remove(position);
         }
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        mClient.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Botequim Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://seawolf.com.euetilico.ui/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(mClient, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Botequim Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://seawolf.com.euetilico.ui/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(mClient, viewAction);
+        mClient.disconnect();
+    }
 }

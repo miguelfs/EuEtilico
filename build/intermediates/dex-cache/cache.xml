@@ -16,20 +16,6 @@
         <dex dex="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-22153db801c1dca9b39a29bd2820558da36ad28d.jar" />
     </item>
     <item
-        jar="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
-        <dex dex="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\pre-dexed\debug\classes-34a10a70242d6a6fd91904321e671174e713e063.jar" />
-    </item>
-    <item
-        jar="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\pre-dexed\debug\classes-7f508697d8060134800a46650ea7a108777b958b.jar" />
-    </item>
-    <item
         jar="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
@@ -42,6 +28,20 @@
         revision="23.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
         <dex dex="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\pre-dexed\debug\classes-465da340078b02f4c4379670157d43d89eeec006.jar" />
+    </item>
+    <item
+        jar="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\pre-dexed\debug\classes-34a10a70242d6a6fd91904321e671174e713e063.jar" />
+    </item>
+    <item
+        jar="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\Miguel\Documents\GitProjects\EuEtilico\app\build\intermediates\pre-dexed\debug\classes-7f508697d8060134800a46650ea7a108777b958b.jar" />
     </item>
 
 </items>
